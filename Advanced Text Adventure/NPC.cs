@@ -3,7 +3,7 @@
     internal partial class Program
     {
         public static NPC practiceManequin = new NPC("Practice Manequin", 0, 0, Emotions.Neutral, Interests.Cotton | Interests.Manequins);
-        public class NPC
+        public struct NPC
         { 
             public string name;
             public int loveMeter;
@@ -21,7 +21,7 @@
                 this.emotion = emotion;
                 this.interests = interests;
             }
-
+       
             public bool HasInterests(Interests interestsList)
             {
                 return interests.HasFlag(interestsList);

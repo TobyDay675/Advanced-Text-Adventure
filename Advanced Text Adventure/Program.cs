@@ -8,14 +8,18 @@
             Space = 1,
             Anime = 2,
             Science = 4,
-            Dogs = 8,
-            Cats = 16,
-            Cotton = 32,
-            Manequins = 64,
-        }
-        public enum Emotions { Neutral, Happy, Sad, Angry, Flustered, Distant, Infatuated}
+            Ocean = 8,
+            FirstPersonShooters = 16,
+            WorkingOut = 32,
+            Sports = 64,
+            FastFood = 128,
+            Pop = 256,
+            SonicTheHedgehog = 512,
 
-       
+        }
+        public enum Emotions { Neutral, Happy, Sad, Angry, Flustered, Distant, Infatuated }
+
+        
 
         static T PromptUser<T>()
         {
