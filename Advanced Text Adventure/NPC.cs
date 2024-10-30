@@ -2,34 +2,39 @@
 
 namespace Advanced_Text_Adventure
 {
-    internal partial class Program
+    internal unsafe partial class Program
     {
         public static NPC practiceManequin = new NPC("Practice Manequin", 0, 2, 0, Emotions.Neutral, 
         new()
         {
-            ["Cotton"] = () =>
+            ["cotton"] = (npc) =>
             {
-                practiceManequin.loveMeter += (practiceManequin.loveMeterIncrease - practiceManequin.seduceAbility);
-                practiceManequin.emotion = Emotions.Happy;
+                npc.loveMeter += (npc.loveMeterIncrease - npc.seduceAbility);
+                npc.emotion = Emotions.Happy;
             },
-            ["Knives"] = () =>
+            ["knives"] = (npc) =>
             {
-                practiceManequin.seduceAbility += 1;
-                practiceManequin.emotion = Emotions.Sad;
+                npc.seduceAbility += 1;
+                npc.emotion = Emotions.Sad;
             },
-            ["Boring"] = () =>
+            ["boring"] = (npc) =>
             {
-                practiceManequin.loveMeter -= 5;
-                practiceManequin.emotion = Emotions.Angry;
+                npc.loveMeter -= 5;
+                npc.emotion = Emotions.Angry;
             },
-            ["Anime"] = () =>
+            ["anime"] = (npc) =>
             {
-                practiceManequin.loveMeter -= practiceManequin.loveMeterIncrease;
-                practiceManequin.emotion = Emotions.Flustered;
+                npc.loveMeter -= npc.loveMeterIncrease;
+                npc.emotion = Emotions.Flustered;
             },
-
+            ["garbage"] = (npc) =>
+            {
+                npc.loveMeter = 0;
+                npc.seduceAbility = 100;
+                npc.emotion = Emotions.Distant;
+            }
         });
-        public struct NPC
+        public class NPC
         { 
             public string name;
             public int loveMeter;
@@ -37,9 +42,10 @@ namespace Advanced_Text_Adventure
             public int seduceAbility;
             public bool isSwooned;
             public Emotions emotion;
-            public Dictionary<string, Action> interestTrigger;
+            public Dictionary<string, Action<NPC>> reactions;
+            public Conversation[] conversations;
 
-            public NPC (string name, int loveMeter, int loveMeterIncrease, int seduceAbility,  Emotions emotion, Dictionary<string, Action> interestTrigger)
+            public NPC (string name, int loveMeter, int loveMeterIncrease, int seduceAbility,  Emotions emotion, Dictionary<string, Action<NPC>> reactions, Conversation[] conversations)
             {
                 this.name = name;
                 this.loveMeter = loveMeter;
@@ -47,17 +53,9 @@ namespace Advanced_Text_Adventure
                 this.seduceAbility = seduceAbility;
                 this.isSwooned = false;
                 this.emotion = emotion;
-                this.interestTrigger = interestTrigger;
+                this.reactions = reactions;
+                this.conversations = conversations;
             }
-            public static Action infatuate;
-            public void InfatuatedCheck()
-            {
-                if (this.loveMeter == 100)
-                {
-                    this.isSwooned = true;
-                }
-            }
-
         }
     }
 }
