@@ -5,13 +5,12 @@ namespace Advanced_Text_Adventure
     internal unsafe partial class Program
     {
         [Serializable]
-        public struct DialoguePiece
+        public struct Area
         {
             [JsonInclude]
-            public string message;
+            string name;
             [JsonInclude]
-            public string[] responses;
+            public Event thing;
         }
-
     }
 }

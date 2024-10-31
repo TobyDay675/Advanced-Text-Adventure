@@ -1,4 +1,7 @@
 ﻿using System.Diagnostics.Tracing;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Advanced_Text_Adventure
 {
@@ -8,17 +11,58 @@ namespace Advanced_Text_Adventure
 
         public static List<string> words;
         public static NPC currentNPC;
+
+        static T ReadJson<T>(string filePath)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true, IncludeFields = true };
+            using StreamReader reader = new(filePath);
+            string json2 = reader.ReadToEnd();
+            return JsonSerializer.Deserialize<T>(json2, options)!;
+        }
+        static void WriteJson<T>(T obj, string filePath)
+        {
+            var options2 = new JsonSerializerOptions { WriteIndented = true };
+            string json = JsonSerializer.Serialize(obj, options2);
+            using StreamWriter writer = new(filePath);
+            writer.Write(json);
+            writer.Flush();
+        }
+
         static void Main(string[] args)
         {
-            currentNPC = practiceManequin;
-            Console.WriteLine("Welcome to the test\n");
-            Console.WriteLine("In front of you is a test manequin\n");
-            Console.WriteLine("What do you want to say to the manequin [type the number of the response you want to make]\n");
-            Console.WriteLine("[1] your mom, [2] Cotton knives yuh");
-            string input = PromptUser<string>();
-            WordArray(input);
-            SearchForInterests();
-            Console.WriteLine($"Here is how that affected the manequin: Love Meter: {currentNPC.loveMeter}, Emotion: {currentNPC.emotion}");
+            //E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/.json
+
+            DialoguePiece piece = new()
+            {
+                message = "This is a test I am the tester", 
+                responses = ["Wow that was really cool", "sigma"]
+            };
+            DialoguePiece piece2 = new()
+            {
+                message = "Wow that was really cool",
+                responses = ["Wow that was really cool", "Wow that wasn't really cool"]
+            };
+            DialoguePiece piece3 = new()
+            {
+                message = "dude what the hell why did you say sigma",
+                responses = ["because its funny or whatever", "skibidi"]
+            };
+
+            Conversation conversation1 = new()
+            {
+                conversation = [
+                new()
+                {
+                    DialoguePiece = piece,
+                    branches =
+                    [
+                        piece2, piece3
+                    ]
+                }]
+            };
+
+            var conversation = ReadJson<Conversation>("E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/test2.json");
+            Console.WriteLine(conversation.conversation[0].branches[0].responses[0]);
         
         static T PromptUser<T>()
         {

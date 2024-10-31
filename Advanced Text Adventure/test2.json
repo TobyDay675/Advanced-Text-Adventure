@@ -1,0 +1,29 @@
+{
+  "conversation": [
+    {
+      "DialoguePiece": {
+        "message": "This is a test I am the tester",
+        "responses": [
+          "Wow that was really cool",
+          "sigma"
+        ]
+      },
+      "branches": [
+        {
+          "message": "Wow that was really cool",
+          "responses": [
+            "Wow that was really cool",
+            "Wow that wasn\u0027t really cool"
+          ]
+        },
+        {
+          "message": "dude what the hell why did you say sigma",
+          "responses": [
+            "because its funny or whatever",
+            "skibidi"
+          ]
+        }
+      ]
+    }
+  ]
+}

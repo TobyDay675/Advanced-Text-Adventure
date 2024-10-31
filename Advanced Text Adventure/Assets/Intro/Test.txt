@@ -1,0 +1,42 @@
+﻿Dialogue for Binarii Amores
+
+
+Intro 
+
+
+Welcome new students to Binarii Amores, the university that prioritizes your future.
+
+
+Here at Binarii we offer state of the art education and community.
+
+
+Speaking of community, you have to choose a roommate for your time here at Binarii.
+
+
+Oh? Do you not know how to talk to people y/n
+
+
+//If yes
+
+
+Well you anti-social 
+
+
+Practice Mannequin
+
+
+
+
+
+
+Aurora Borealis 
+
+
+
+
+Chad Thunderrock
+
+
+
+
+Carina Stars

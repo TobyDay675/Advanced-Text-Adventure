@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 
 namespace Advanced_Text_Adventure
 {
@@ -33,16 +34,25 @@ namespace Advanced_Text_Adventure
                 npc.seduceAbility = 100;
                 npc.emotion = Emotions.Distant;
             }
-        });
+        }, null);
+
+        [Serializable]
         public class NPC
-        { 
+        {
+            [JsonInclude]
             public string name;
+            [JsonInclude]
             public int loveMeter;
+            [JsonInclude]
             public int loveMeterIncrease;
+            [JsonInclude]
             public int seduceAbility;
+            [JsonInclude]
             public bool isSwooned;
+            [JsonInclude]
             public Emotions emotion;
             public Dictionary<string, Action<NPC>> reactions;
+            [JsonInclude]
             public Conversation[] conversations;
 
             public NPC (string name, int loveMeter, int loveMeterIncrease, int seduceAbility,  Emotions emotion, Dictionary<string, Action<NPC>> reactions, Conversation[] conversations)
