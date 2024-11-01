@@ -30,39 +30,16 @@ namespace Advanced_Text_Adventure
 
         static void Main(string[] args)
         {
-            //E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/.json
+            //"E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/.json"
+            var title = ReadJson<string[]>("E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/Title.json");
+            //WriteJson("rahhhhhh", "E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/Test.json");
+            foreach (var line in title)
+            {
+                Console.WriteLine(line);
+            }
 
-            DialoguePiece piece = new()
-            {
-                message = "This is a test I am the tester", 
-                responses = ["Wow that was really cool", "sigma"]
-            };
-            DialoguePiece piece2 = new()
-            {
-                message = "Wow that was really cool",
-                responses = ["Wow that was really cool", "Wow that wasn't really cool"]
-            };
-            DialoguePiece piece3 = new()
-            {
-                message = "dude what the hell why did you say sigma",
-                responses = ["because its funny or whatever", "skibidi"]
-            };
-
-            Conversation conversation1 = new()
-            {
-                conversation = [
-                new()
-                {
-                    DialoguePiece = piece,
-                    branches =
-                    [
-                        piece2, piece3
-                    ]
-                }]
-            };
-
-            var conversation = ReadJson<Conversation>("E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/test2.json");
-            Console.WriteLine(conversation.conversation[0].branches[0].responses[0]);
+            //var conversation = ReadJson<Conversation>("E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/test2.json");
+            //Console.WriteLine(conversation.conversation[0].branches[0].responses[0]);
         
         static T PromptUser<T>()
         {
