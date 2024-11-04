@@ -25,7 +25,7 @@ namespace Advanced_Text_Adventure
             },
             ["anime"] = (npc) =>
             {
-                npc.loveMeter -= npc.loveMeterIncrease;
+                npc.loveMeter -= npc.loveMeterIncrease + 10;
                 npc.emotion = Emotions.Flustered;
             },
             ["garbage"] = (npc) =>
@@ -34,7 +34,7 @@ namespace Advanced_Text_Adventure
                 npc.seduceAbility = 100;
                 npc.emotion = Emotions.Distant;
             }
-        }, null);
+        }, 20);
 
         [Serializable]
         public class NPC
@@ -53,9 +53,9 @@ namespace Advanced_Text_Adventure
             public Emotions emotion;
             public Dictionary<string, Action<NPC>> reactions;
             [JsonInclude]
-            public Conversation[] conversations;
+            public int amountToSeduce;
 
-            public NPC (string name, int loveMeter, int loveMeterIncrease, int seduceAbility,  Emotions emotion, Dictionary<string, Action<NPC>> reactions, Conversation[] conversations)
+            public NPC (string name, int loveMeter, int loveMeterIncrease, int seduceAbility, Emotions emotion, Dictionary<string, Action<NPC>> reactions, int amountToSeduce)
             {
                 this.name = name;
                 this.loveMeter = loveMeter;
@@ -64,7 +64,7 @@ namespace Advanced_Text_Adventure
                 this.isSwooned = false;
                 this.emotion = emotion;
                 this.reactions = reactions;
-                this.conversations = conversations;
+                this.amountToSeduce = amountToSeduce;
             }
         }
     }

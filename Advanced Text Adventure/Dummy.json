@@ -1,0 +1,87 @@
+{
+  "conversation": [
+    {
+      "DialoguePiece": {
+        "message": "Manequin: ...... (the manequin looks at you expectingly a knife stuck to it's head)",
+        "responses": [
+          "[1] You: Hey there you seem pretty uh... cottony.",
+          "[2] You: Ew... this manequin smells like garbage.",
+          "[3] *take the knife out of its head*"
+
+        ]
+      },
+      "branches": [
+        {
+          //Cotton Branch
+          "message": "Manequin: ..... (the manequin seems happy about your cottony talk)",
+          "responses": [
+            "[1] You: Oh so you are a fan of cotton? Yeah I really love to um use it to make stuffed animals.",
+            "[2] You: yeah I'm sorry this is kind of boring.'"
+          ]
+        },
+        {
+          //[1]
+          "message": "Manequin: ..... (the manequin enjoys the talk but can tell you don't have much to say on the topic)'",
+          "responses": [
+            "You: yeah that's pretty much all I know on the subject.'"
+          ]
+        },
+        {
+          //[1]
+          "message": "Manequin: ..... (the manequin respects your honesty and leaves no longer interested)'",
+          "responses": [
+            "You: Well that went just as well as I expected.'"
+          ]
+        },
+        {
+          //[2]
+          "message": "Manequin: ..... (Deeply offended the manequin storms out)'",
+          "responses": [
+            "You: That.... could have gone better.'"
+          ]
+        },
+        {
+          //garbage
+          "message": "Manequin: ..... (deeply offended and saddened by your comment the manequin leaves keeping its distance from you)'",
+          "responses": [
+            "You: I could have done that better.'"
+          ]
+        },
+        {
+          //Knife
+          "message": "Manequin: ..... (the manequin eyes the knife in your hand sadly)'",
+          "responses": [
+            "You: Oh shoot you wanted that in your head didn't you'"
+          ]
+        },
+        {
+          "message": "*You put it back into the manequin's head it looks to have calmed down*'",
+          "responses": [
+            "[1] You: Well not gonna do that again... um uhhhhhh *you can't think of anything to say*.'",
+            "[2] You: Well I feel like this is just awkward so I'll see myself out.'"
+          ]
+        },
+        {
+          //[1]
+          "message": "Manequin: ..... (the manequin awaits something from you)'",
+          "responses": [
+            "You: Um are you a fan of Anime?"
+          ]
+        },
+        {
+          "message": "Manequin: ..... (the manequin is overjoyed by the mere mention of anime and proceeds to talk you to death about it)'",
+          "responses": [
+            "*overjoyed about making the manequin happy you consider this a win*'"
+          ]
+        },
+        {
+          //[2]
+          "message": "*You leave the manequin alone dissapointed by how bad you fumbled the interaction*'",
+          "responses": [
+            "You: Man if I failed that badly when talking to an inanimate object how will I even surive talking to a real person?'"
+          ]
+        }
+      ]
+    }
+  ]
+}

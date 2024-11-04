@@ -32,7 +32,6 @@ namespace Advanced_Text_Adventure
         {
             //"E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/.json"
             var title = ReadJson<string[]>("E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/Title.json");
-            //WriteJson("rahhhhhh", "E:/VGD/1717222/Advanced Text Adventure/Advanced Text Adventure/Test.json");
             foreach (var line in title)
             {
                 Console.WriteLine(line);
@@ -83,7 +82,7 @@ namespace Advanced_Text_Adventure
         }
         static void InfatuatedCheck()
             {
-                if (currentNPC.loveMeter == 100)
+                if (currentNPC.loveMeter == currentNPC.amountToSeduce)
                 {
                     currentNPC.isSwooned = true;
                     currentNPC.emotion = Emotions.Infatuated;
